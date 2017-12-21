@@ -1,0 +1,83 @@
+h2 {
+    color: #777777;
+}
+.seats {
+
+    margin-top: 20px;
+}
+
+.seat
+{
+    display: flex;
+    justify-content: center;
+}
+.LoveSeat
+{
+    display: flex;
+    justify-content: center;
+}
+
+.seat2
+{
+    background-color: #a8a8a8;
+    border: 1px solid #979797;
+    margin-top:0;
+    border-radius: 15px;  
+}
+
+.LoveSeat img
+{
+    height: 75px;
+    margin: 0 15px;
+}
+.seat img
+{
+    height: 60px;
+}
+.scherm {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 20px;
+    transform: rotate(180deg);
+}
+.left_bar {
+    background-color: #ffffff;
+    border-right: 1px solid lightgrey;
+    width: 320px;
+    height: 100%;
+}
+.right_bar {
+    border-left: 1px solid lightgrey;
+    background-color: #ffffff;
+    width: 320px;
+    height: 100%;
+}
+.bezet
+{
+    opacity: 0.3;
+}
+
+.movieItems
+{
+    display: none;
+}
+.bar
+{
+    padding: 10px 20px;
+    background-color: #f8f8f8;
+    border: 1px solid #e7e7e7;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 15px;
+}
+footer
+{
+    margin-top: 20px; 
+}
+.Arrow
+{
+    width: 75px;
+    margin-right: 20px;
+}
