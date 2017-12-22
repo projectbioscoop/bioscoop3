@@ -14,7 +14,7 @@ class MovieController extends Controller
      */
     public function index()
     {
-        return view("moviedetails");
+
     } 
 
     /**
@@ -85,5 +85,19 @@ class MovieController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function details()
+    {
+        return view("moviedetails");
+    }
+
+    public function check()
+    {
+        $userId = \Auth::User()->id;
+        $filmid = $_POST["id"];
+        $filmid = urlencode($filmid);
+        $data = file_get_contents("http://www.omdbapi.com/?apikey=31d16dc7&i=".$filmid."&plot=full");
+        return view("moviereturn", compact("data"));
     }
 }
