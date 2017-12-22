@@ -3,6 +3,7 @@
 @section("content")
 
 <?php
+    $movieid = $data;
     $data = trim($data, '{"');
     $data = trim($data, '"}');
     $moviedata = explode('","', $data);
@@ -35,7 +36,7 @@
 ?>
 
 <form methode="POST" action={{action("MovieController@store")}}>
-    <input type="hidden" value="$data">
+    <input type="hidden" value="$filmid">
     <input value="Save this movie" type="submit">
 </form>
 
