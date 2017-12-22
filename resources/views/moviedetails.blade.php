@@ -2,7 +2,7 @@
 
 @section("content")
 
-<form method="POST" action={{ action('MovieController@show') }}>
+<form method="POST" action={{ action('MovieController@check') }}>
 {{csrf_field()}}
     <input type="text" name="id" value="tt2283362">
     <input value="Search ID" type="submit">
