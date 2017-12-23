@@ -11,40 +11,31 @@
 |
 */
 
+Route::group(['middleware'=>'Everyone'] , function(){
+    Route::post('/scanticket', 'TicketController@check');
+    Route::resource('ticket', 'TicketController');
+
+    Route::get('/', function () { return view('dashboard'); })->name('home');
+
+    Route::get('/paymentcomplete', 'PaymentController@index');
+    Route::get('/payment', 'PaymentController@paymentComplete')->name('PaymentComplete');
+
+    Route::get('/payTicket', 'PayTicketController@index'); // geen pagina er aan gehangen !!
+    Route::get('/payTicket', 'PayTicketController@payTicket')->name('payTicket');
+});
 
 Route::group(['middleware'=>'auth'], function(){
-
     Route::get('/chairselect/{id}', "BioscoopZaalController@index");
-    Route::get('/chairselectadmin', "BioscoopZaalController@indexAdmin");
     Route::get("/moviedetails", "MovieController@details");
     Route::post("/moviereturn", "MovieController@check");
     Route::resource('movie', 'MovieController');
     Route::post("/savemovie", "MovieController@store");
-
     Route::group(['middleware' => 'admin'], function () {
-        Route::get('/agenda', 'AgendaController@index')->name('agenda');
-        
+        Route::get('/chairselectadmin', "BioscoopZaalController@indexAdmin");
     });
 });
-Route::post('/scanticket', 'TicketController@check');
-Route::resource('ticket', 'TicketController');
 
-Route::get('/', function () {
-    return view('dashboard');
-})->name('home');
-
-Route::get('/paymentcomplete', 'PaymentController@index');
-Route::get('/payment', function () {
-    return view('PaymentComplete.PaymentComplete');
-})->name('PaymentComplete');
-
-
-Route::get('/payTicket', 'PayTicketController@index');
-Route::get('/payTicket', function () {
-    return view('Payment.payTicket');
-})->name('payTicket');
-
-
+// debug lines
 if(env('APP_ENV') == 'production')
 {
     Auth::routes();

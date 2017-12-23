@@ -16,6 +16,11 @@ class PayTicketController extends Controller
         //
     }
 
+    public function payTicket()
+    {
+        return view('Payment.payTicket');
+    }
+
     /**
      * Show the form for creating a new resource.
      *
