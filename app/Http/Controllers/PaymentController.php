@@ -16,6 +16,11 @@ class PaymentController extends Controller
         return view('PaymentComplete.PaymentComplete');
     }
 
+    public function paymentComplete()
+    {
+        return view('PaymentComplete.PaymentComplete');
+    }
+
     /**
      * Show the form for creating a new resource.
      *
