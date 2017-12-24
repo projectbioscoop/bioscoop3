@@ -39,9 +39,10 @@ class MovieController extends Controller
             'movieid' => 'required|string|min:2'
         ]);
 
-        $project = new \App\Project();
-        $project->movieid = $request->name;
-        $project->save();
+        $movie = new \App\Movie();
+        $movie->movieid = $request->movieid;
+        $movie->save();
+        return redirect("admin.moviedetails");
     }
 
     /**
@@ -96,9 +97,9 @@ class MovieController extends Controller
 
     public function check()
     {
-        $filmid = $_POST["id"];
-        $filmid = urlencode($filmid);
-        $data = file_get_contents("http://www.omdbapi.com/?apikey=31d16dc7&i=".$filmid."&plot=full");
-        return view("admin.moviereturn", compact("data", "filmid"));
+        $movieid = $_POST["id"];
+        $movieid = urlencode($movieid);
+        $data = file_get_contents("http://www.omdbapi.com/?apikey=31d16dc7&i=".$movieid."&plot=full");
+        return view("admin.moviereturn", compact("data", "movieid"));
     }
 }

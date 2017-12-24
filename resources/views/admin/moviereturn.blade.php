@@ -29,15 +29,15 @@
             $totalArray = array_merge($totalArray, $Array);
         }
     }
-    // echo "<img src=''"
     echo "<h5><b>Titel</b></h5>". $totalArray["Title"]."<hr>";
     echo "<h5><b>Minumum Leeftijd</h5></b>". $totalArray["Rated"]."<hr>";
     echo "<h5><b> Release datum</b> </h5>". $totalArray["Year"];
 ?>
 
-<form methode="POST" action={{action("MovieController@store")}}>
-    <input type="hidden" value="$filmid">
-    <input value="Save this movie" type="submit">
+<form method="POST" action= {{ action('MovieController@store')}}>
+    {{csrf_field()}}
+    <input type="hidden" value="$movieid">
+    <input value="Deze film opslaan" type="submit">
 </form>
 
 @endsection
