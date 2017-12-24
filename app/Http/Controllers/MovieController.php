@@ -35,14 +35,11 @@ class MovieController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'movieid' => 'required|string|min:2'
-        ]);
-
-        $movie = new \App\Movie();
-        $movie->movieid = $request->movieid;
+        $movie = new \App\tbl_movies();
+        $movie->movie_id = $request->id;
+        $movie->movie_title = $request->title;
         $movie->save();
-        return redirect("admin.moviedetails");
+        return view("admin.moviedetails");
     }
 
     /**
@@ -99,7 +96,9 @@ class MovieController extends Controller
     {
         $movieid = $_POST["id"];
         $movieid = urlencode($movieid);
-        $data = file_get_contents("http://www.omdbapi.com/?apikey=31d16dc7&i=".$movieid."&plot=full");
+        $json = file_get_contents("http://www.omdbapi.com/?apikey=31d16dc7&i=".$movieid."&plot=short&r=json");
+        $tmp = json_decode($json, true);
+        $data = array_reverse($tmp);
         return view("admin.moviereturn", compact("data", "movieid"));
     }
 }

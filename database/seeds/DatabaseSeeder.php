@@ -78,17 +78,30 @@ class DatabaseSeeder extends Seeder
             
         }
 
-        $amountMovies = 20;
+        $movieArray = [
+            ["tt0338348", "The Polar Express"],
+            ["tt0388419", "Christmas with the Kranks"],
+            ["tt0330793", "The Punisher"],
+            ["tt0377092", "Mean Girls"],
+            ["tt0437940", "The Incredibles"],
+            ["tt0304141", " Harry Potter and the Prisoner of Azkaban"],
+            ["tt0167190", "Hellboy"],
+            ["tt0356150", "EuroTrip"],
+            ["tt0453486", "The Girl Next Door"],
+            ["tt0289879", " The Butterfly Effect"]
+        ];
+        $amountMovies = count($movieArray);
 
         for ($i = 0;$i < $amountMovies;$i++)
         {
             $movie                      = new \App\tbl_movies();
-            $movie->movie_title         = $faker->sentence;
-            $movie->language_version    = $faker->languageCode;
-            $movie->genre               = $faker->word;
-            $movie->projection          = $faker->word;
+            $movie->movie_id            = $movieArray[$i][0];
+            $movie->movie_title         = $movieArray[$i][1];
+            // $movie->language_version    = $faker->languageCode;
+            // $movie->genre               = $faker->word;
+            // $movie->projection          = $faker->word;
             $movie->movie_info          = $faker->sentence;
-            $movie->requirements        = $faker->sentence;
+            // $movie->requirements        = $faker->sentence;
             $movie->save();
         }
 
