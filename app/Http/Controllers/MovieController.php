@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\tbl_movies;
 use Illuminate\Http\Request;
 use App\User;
+use function Symfony\Component\Debug\Tests\FatalErrorHandler\test_namespaced_function;
 
 class MovieController extends Controller
 {
@@ -14,7 +16,17 @@ class MovieController extends Controller
      */
     public function index()
     {
+        $mvs[] = 0;
+        $i = 0;
+        $movies = tbl_movies::all();
+        foreach ($movies as $movie){
+            $mvs[$i] = file_get_contents("http://www.omdbapi.com/?apikey=31d16dc7&i=" . $movie->movie_id . "&plot=full=json");
+            $mvs[$i] = json_decode($mvs[$i]);
+            $i++;
+        }
+//        dd($mvs);
 
+        return view('movie.movies', compact('mvs', 'mvs') );
     } 
 
     /**

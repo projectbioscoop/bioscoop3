@@ -1,0 +1,1 @@
+@extends('master')@section('content')    {{dd($movies)}}@endsection
