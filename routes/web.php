@@ -23,7 +23,7 @@ Route::group(['middleware'=>'auth'], function(){
 
     Route::group(['middleware' => 'admin'], function () {
         Route::get('/agenda', 'AgendaController@index')->name('agenda');
-        
+        Route::get('/update-agenda', 'AgendaController@create')->name('update-agenda');
     });
 });
 Route::post('/scanticket', 'TicketController@check');
