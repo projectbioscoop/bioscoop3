@@ -60,9 +60,12 @@ class MovieController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show($movie)
     {
-        
+        $movie = file_get_contents("http://www.omdbapi.com/?apikey=31d16dc7&i=" . $movie . "&plot=full=json");
+        $movie = json_decode($movie);
+        return view('movie.showmovie')
+            ->with('movie', $movie);
     }
 
     /**

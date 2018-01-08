@@ -1,1 +1,1 @@
-@extends('master')@section('content')    {{dd($movies)}}@endsection
+@extends('master')@section('content')    {{--{{dd($mvs)}}--}}    <h1>Op Dit moment in de bioscoop:</h1>    <div class="movie-display">        @foreach($mvs as $mv)            <a href="{{action('MovieController@show', $mv->imdbID)}}">                <div class="movie-image">                    <img src="{{$mv->Poster}}" alt="{{$mv->Title}}">                    <p>{{$mv->Title}}</p>                </div>            </a>        @endforeach    </div>@endsection

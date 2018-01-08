@@ -162,12 +162,6 @@
         <!--/.container--> 
     </div>
     <!--/.footer-->
-    
-    <div>
-        <div class="container">
-            <p class="pull-left"> Copyright © Bioscoop </p>
-        </div>
-    </div>
     <!--/.footer-bottom--> 
 </footer>
     <script src="https://cdn.jsdelivr.net/jsbarcode/3.6.0/JsBarcode.all.min.js"> </script>
