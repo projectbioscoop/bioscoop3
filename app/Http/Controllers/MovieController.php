@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\tbl_displays;
 use App\tbl_movies;
 use Illuminate\Http\Request;
 use App\User;
@@ -62,10 +63,14 @@ class MovieController extends Controller
      */
     public function show($movie)
     {
+        $id = tbl_movies::where('movie_id','=', $movie)->select('id')->first();
         $movie = file_get_contents("http://www.omdbapi.com/?apikey=31d16dc7&i=" . $movie . "&plot=full=json");
         $movie = json_decode($movie);
+        $displays = tbl_displays::all()->where('movie_id','=', $id->id);
+
         return view('movie.showmovie')
-            ->with('movie', $movie);
+            ->with('movie', $movie)
+            ->with('displays', $displays);
     }
 
     /**
