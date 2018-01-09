@@ -25,8 +25,6 @@ class MovieController extends Controller
             $mvs[$i] = json_decode($mvs[$i]);
             $i++;
         }
-//        dd($mvs);
-
         return view('movie.movies', compact('mvs', 'mvs') );
     } 
 
