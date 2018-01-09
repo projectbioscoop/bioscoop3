@@ -251,8 +251,15 @@
 	margin-top: 50px;
 	text-align: start;
 	justify-content: space-around;
-	width: 70%;
 	border-bottom: 1px solid #6F829F;
+	padding-bottom: 20px;
+}
+.movie-left {
+	width:70%;
+}
+.movie-top img {
+	width: 200px;
+	height: 300px;
 }
 .movie-bot {
 	width: 100%;

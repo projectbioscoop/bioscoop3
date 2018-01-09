@@ -5,9 +5,9 @@
     <div class="movie-top">
         <div class="movie-left">
             <h1>{{$movie->Title}}</h1>
+            <p>Speeltijd: {{$movie->Runtime}}</p>
+            <p>Genre: {{$movie->Genre}}</p>
             <p>{{$movie->Plot}}</p>
-            <p>{{$movie->Runtime}}</p>
-            <p>{{$movie->Genre}}</p>
         </div>
         <div class="movie-right">
             <img src="{{$movie->Poster}}" alt="Movie-poster">
