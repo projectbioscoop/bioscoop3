@@ -17,8 +17,10 @@
         <h3 id="test">Tijden voor {{$movie->Title}}</h3>
         @foreach($displays as $display)
             <div class="display">
-                <p>{{$display->date}}</p>
-                <p>{{$display->time}}</p>
+                <a href="{{action('DisplayController@show', $display->id)}}">
+                    <p>{{$display->date}}</p>
+                    <p>{{$display->time}}</p>
+                </a>
             </div>
         @endforeach
     </div>

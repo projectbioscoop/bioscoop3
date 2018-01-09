@@ -285,6 +285,13 @@
 .display:hover {
 	background-color: #e7e7e7;
 }
+.display a:visited {
+	color: #000000;
+}
+.display a {
+	text-decoration: none;
+	color: #000000;
+}
 #test {
 	grid-column-start: 1;
 	grid-column-end: 6;
