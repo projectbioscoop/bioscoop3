@@ -18,7 +18,7 @@
                 <ul class="nav navbar-nav"> 
                     <li class="active"><a href="/">Home</a></li> 
                     <li><a href={{ URL::to('/moviedetails')}}>Film ophalen</a></li> 
-                    <li><a href="#">Page 2</a></li> 
+                    <li><a href="{{ URL::to('/movie')}}">Films</a></li>
                     <li><a href="#">Page 3</a></li> 
                 </ul> 
                 <form class="navbar-form navbar-right"> 
@@ -162,12 +162,6 @@
         <!--/.container--> 
     </div>
     <!--/.footer-->
-    
-    <div>
-        <div class="container">
-            <p class="pull-left"> Copyright © Bioscoop </p>
-        </div>
-    </div>
     <!--/.footer-bottom--> 
 </footer>
     <script src="https://cdn.jsdelivr.net/jsbarcode/3.6.0/JsBarcode.all.min.js"> </script>
