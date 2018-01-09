@@ -23,7 +23,17 @@ class AgendaController extends Controller
      */
     public function create()
     {
-        //
+        $mvs[] = 0;
+        $i = 0;
+        $movies = tbl_movies::all();
+        foreach ($movies as $movie){
+            $mvs[$i] = file_get_contents("http://www.omdbapi.com/?apikey=31d16dc7&i=" . $movie->movie_id . "&plot=full=json");
+            $mvs[$i] = json_decode($mvs[$i]);
+            $i++;
+        }
+//        dd($mvs);
+
+        return view('admin.UpdateAgenda', compact('mvs', 'mvs') );
     }
 
     /**
