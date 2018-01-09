@@ -15,12 +15,13 @@ class CreateTblMoviesTable extends Migration
     {
         Schema::create('tbl_movies', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('movie_id');
             $table->string('movie_title');
-            $table->string('language_version');
-            $table->string('genre');
-            $table->string('projection');
-            $table->string('movie_info');
-            $table->string('requirements');
+            // $table->string('language_version');
+            // $table->string('genre');
+            // $table->string('projection');
+            $table->string('movie_info')->nullable();
+            // $table->string('requirements');
             $table->timestamps();
         });
     }
