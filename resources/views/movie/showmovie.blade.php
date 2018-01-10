@@ -16,12 +16,12 @@
     <div class="movie-bot">
         <h3 id="test">Tijden voor {{$movie->Title}}</h3>
         @foreach($displays as $display)
-            <div class="display">
-                <a href="{{action('DisplayController@show', $display->id)}}">
+            <a href="{{action('DisplayController@show', $display->id)}}">
+                <div class="display">
                     <p>{{$display->date}}</p>
                     <p>{{$display->time}}</p>
-                </a>
-            </div>
+                </div>
+            </a>
         @endforeach
     </div>
 
