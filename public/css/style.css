@@ -12,6 +12,7 @@
 	height: auto;
 	padding-bottom: 30px;
 	position: relative;
+	bottom: 0;
 	width: 100%;
 	border-bottom: 1px solid #CCCCCC;
 	border-top: 1px solid #DDDDDD;
@@ -157,6 +158,8 @@
 } 
 .row {
 	margin-top: 20px;
+	display: flex;
+	justify-content: space-between;
 }
 
 
@@ -217,4 +220,109 @@
 .ticketmessage {
 	list-style-type: none;
 	padding: 50px;
+}
+
+/* movie check/details page */
+.movie-display {
+	width: 100%;
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	grid-gap: 0px;
+	grid-row-gap: 25px;
+	grid-auto-rows: 260px;
+	text-align: center;
+}
+.movie-display img{
+	width:150px;
+	height: 225px;
+}
+.movie-display a {
+	color: #000000;
+	text-decoration: none;
+}
+.movie-image {
+	padding: 10px;
+	width: 200px;
+	border-bottom: 1px solid #6F829F;
+}
+
+.movie-top {
+	display: flex;
+	flex-direction: row;
+	margin-top: 50px;
+	text-align: start;
+	justify-content: space-around;
+	border-bottom: 1px solid #6F829F;
+	padding-bottom: 20px;
+}
+.movie-left {
+	width:70%;
+}
+.movie-top img {
+	width: 200px;
+	height: 300px;
+}
+.movie-bot {
+	width: 100%;
+	margin: 50px auto;
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	grid-gap: 0px;
+	grid-row-gap: 10px;
+	grid-auto-rows: 75px;
+	text-align: center;
+}
+.display {
+	background-color: white;
+	border: 2px solid #e7e7e7;
+	border: none;
+	padding: 16px 32px;
+	text-align: center;
+	text-decoration: none;
+	-webkit-transition-duration: 0.4s; /* Safari */
+	transition-duration: 0.4s;
+	cursor: pointer;
+}
+.display:hover {
+	background-color: #e7e7e7;
+}
+.display a:visited {
+	color: #000000;
+}
+.display a {
+	text-decoration: none;
+	color: #000000;
+}
+#test {
+	grid-column-start: 1;
+	grid-column-end: 6;
+	grid-row-start: 1;
+	grid-row-end: 1;
+}
+.hero-img{
+	position: relative;
+	text-align: center;
+	width: 100%;
+}
+.welkom{
+	height: 15%;
+	position: absolute;
+	color: #ffffff;
+	width: 84%;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	background-color: black;
+	opacity: 0.5;
+	filter: blur(10px);
+	-webkit-filter: blur(10px);
+	-moz-filter: blur(10px);
+	-o-filter: blur(10px);
+	-ms-filter: blur(10px);
+	filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='svgMask'><feGaussianBlur stdDeviation='10' /></filter></svg>#svgMask");
+	top: 95%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 }
