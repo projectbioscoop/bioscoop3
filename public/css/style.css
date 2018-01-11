@@ -221,7 +221,6 @@
 	list-style-type: none;
 	padding: 50px;
 }
-<<<<<<< HEAD
 
 /* movie check/details page */
 .movie-display {
@@ -301,8 +300,6 @@
 	grid-row-start: 1;
 	grid-row-end: 1;
 }
-
-=======
 .hero-img{
 	position: relative;
 	text-align: center;
@@ -329,4 +326,3 @@
 	left: 50%;
 	transform: translate(-50%, -50%);
 }
->>>>>>> Homepage-frontend

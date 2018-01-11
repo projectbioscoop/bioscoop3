@@ -16,15 +16,12 @@
                     <a class="navbar-brand" href="/">Bioscoop</a> 
                 </div> 
                 <ul class="nav navbar-nav"> 
-                    <li class="active"><a href="/">Home</a></li> 
-<<<<<<< HEAD
+                    <li class="active"><a href="/">Home</a></li>
                     <li><a href={{ URL::to('/moviedetails')}}>Film ophalen</a></li> 
                     <li><a href="{{ URL::to('/movie')}}">Films</a></li>
-                    <li><a href="#">Page 3</a></li> 
-=======
+                    <li><a href="#">Page 3</a></li>
                     <li><a href={{ URL::to('/moviedetails')}}>Film ophalen</a></li>
                     <li><a href={{ URL::to('/agenda') }}>Agenda</a></li>
->>>>>>> Homepage-frontend
                 </ul> 
                 <form class="navbar-form navbar-right"> 
                     <div class="input-group"> 
@@ -139,13 +136,7 @@
         <!--/.container--> 
     </div>
     <!--/.footer-->
-<<<<<<< HEAD
-=======
 
-    <div>
-
-    </div>
->>>>>>> Homepage-frontend
     <!--/.footer-bottom--> 
 </footer>
     <script src="https://cdn.jsdelivr.net/jsbarcode/3.6.0/JsBarcode.all.min.js"> </script>
