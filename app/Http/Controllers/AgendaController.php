@@ -66,7 +66,7 @@ class AgendaController extends Controller
      */
     public function edit($id)
     {
-        //
+	    return view('agenda.edit',compact('agenda'));
     }
 
     /**
@@ -76,9 +76,14 @@ class AgendaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,$id)
     {
-        //
+	    request()->validate([
+		    '' => 'required',
+	    ]);
+	    $id->update($request->all());
+	    return redirect()->route('agenda.index')
+	                     ->with('success','agenda updated successfully');
     }
 
     /**
