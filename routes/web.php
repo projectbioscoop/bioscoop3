@@ -30,6 +30,13 @@ Route::group(['middleware'=>'auth'], function(){
 		Route::get('/agenda/UpdateAgenda', 'AgendaController@create')->name('update-agenda');
 		Route::delete('/agenda/delete', 'AgendaController@destroy');
 	});
+    Route::group(['middleware' => 'admin'], function () {
+        Route::get('/agenda', 'AgendaController@index')->name('agenda');
+        Route::get('/hub', function(){
+            return view('admin.hub');
+        });
+        
+    });
 });
 
 Route::get('/agenda', 'AgendaController@index');

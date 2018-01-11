@@ -220,6 +220,17 @@
 	padding: 50px;
 }
 
+.card
+{
+	background-color: #f8f8f8;
+	width: 200px;
+	height: 200px;
+	margin: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
 /* movie check/details page */
 .movie-display {
 	width: 100%;
