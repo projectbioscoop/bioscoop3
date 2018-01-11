@@ -22,11 +22,18 @@ Route::group(['middleware'=>'auth'], function(){
     Route::post("/moviereturn", "MovieController@check");
     Route::post("/savemovie", "MovieController@store");
 
-    Route::group(['middleware' => 'admin'], function () {
-        Route::get('/agenda', 'AgendaController@index')->name('agenda');
-        Route::get('/update-agenda', 'AgendaController@create')->name('update-agenda');
-    });
+	Route::group(['middleware' => 'admin'], function () {
+		Route::get('/agenda/create', 'AgendaController@create');
+		Route::post('/agenda/store', 'AgendaController@store');
+		Route::get('/agenda/show', 'AgendaController@show');
+		Route::get('/agenda/edit', 'AgendaController@edit');
+		Route::get('/agenda/UpdateAgenda', 'AgendaController@create')->name('update-agenda');
+		Route::delete('/agenda/delete', 'AgendaController@destroy');
+	});
 });
+
+Route::get('/agenda', 'AgendaController@index');
+
 Route::post('/scanticket', 'TicketController@check');
 Route::resource('ticket', 'TicketController');
 
