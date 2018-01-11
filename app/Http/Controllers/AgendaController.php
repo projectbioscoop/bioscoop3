@@ -16,7 +16,7 @@ class AgendaController extends Controller
      */
     public function index()
     {
-        return view('agenda');
+        return view('agenda.index');
     }
 
     /**
@@ -35,7 +35,7 @@ class AgendaController extends Controller
             $i++;
         }
 
-        return view('admin.UpdateAgenda', compact('mvs', 'mvs') );
+        return view('agenda.UpdateAgenda', compact('mvs', 'mvs') );
     }
 
     /**
@@ -68,7 +68,7 @@ class AgendaController extends Controller
      */
     public function edit($id)
     {
-        //
+	    return view('agenda.edit',compact('agenda'));
     }
 
     /**
@@ -78,9 +78,14 @@ class AgendaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,$id)
     {
-        //
+	    request()->validate([
+		    '' => 'required',
+	    ]);
+	    $id->update($request->all());
+	    return redirect()->route('agenda.index')
+	                     ->with('success','agenda updated successfully');
     }
 
     /**
