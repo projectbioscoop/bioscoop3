@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\tbl_displays;
+use App\tbl_movies;
 use Illuminate\Http\Request;
+use App\User;
 
 class AgendaController extends Controller
 {
@@ -31,7 +34,6 @@ class AgendaController extends Controller
             $mvs[$i] = json_decode($mvs[$i]);
             $i++;
         }
-//        dd($mvs);
 
         return view('admin.UpdateAgenda', compact('mvs', 'mvs') );
     }
