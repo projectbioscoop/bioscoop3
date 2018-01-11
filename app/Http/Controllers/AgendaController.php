@@ -13,7 +13,7 @@ class AgendaController extends Controller
      */
     public function index()
     {
-        return view('agenda');
+        return view('agenda.index');
     }
 
     /**
@@ -33,7 +33,7 @@ class AgendaController extends Controller
         }
 //        dd($mvs);
 
-        return view('admin.UpdateAgenda', compact('mvs', 'mvs') );
+        return view('agenda.UpdateAgenda', compact('mvs', 'mvs') );
     }
 
     /**
