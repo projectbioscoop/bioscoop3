@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\tbl_displays;
+use App\tbl_movies;
 use Illuminate\Http\Request;
+use function Symfony\Component\Debug\Tests\FatalErrorHandler\test_namespaced_function;
 
 class DisplayController extends Controller
 {
@@ -43,10 +46,14 @@ class DisplayController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($displayID)
     {
-        //Stuur door naar de ticket selecteerpagin!!!!
-        dd($id);
+        $display = tbl_displays::find($displayID);
+        $movie = tbl_movies::find($display->movie_id);
+        $movie = json_decode(file_get_contents("http://www.omdbapi.com/?apikey=31d16dc7&i=" . $movie->movie_id . "&plot=full=json"));
+        $displayinfo = [$movie, $display];
+
+        return view('ticket.select', compact('displayinfo', 'displayinfo'));
     }
 
     /**

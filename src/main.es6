@@ -19,5 +19,8 @@ if (locationArray[0] == "http:" && locationArray[1] == "")
                 "loveSeats" : false
             });
             break;
+        case "display":
+            new Display();
+            break;
     }
 }
