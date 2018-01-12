@@ -66,9 +66,8 @@ class BioscoopZaalController extends Controller
             {
                 $data = array_merge($data , $movieData);
             }
-
-            return view('admin.AdminTheatherReview', compact("data"));
         }
+        return view('admin.AdminTheatherReview', compact("data"));        
     }
 
     /**

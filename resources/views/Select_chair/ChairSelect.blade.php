@@ -69,4 +69,8 @@
             <li><img src="/img/bioscoop/loveseatSelect.png" alt="loveseat" class="chairL"> geselecteerde liefdesstoel..</li>
         </ul>
     </div>
+    <form action="">
+        <input type="hidden" name="loveSeat" id="loveSeat" value="false">
+        <input type="hidden" name="amountSeat" id="amountSeat" value="3">
+    </form>
 @endsection

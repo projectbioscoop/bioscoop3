@@ -6,6 +6,7 @@
 <?php $count2 = 0;?>
 @section ('content')
     @foreach ($data as $movieData)
+    <?= dd($movieData["capacity"]) ?>
     <?php $count = $movieData["capacity"]; $countLove = 0; ?>
         <div class="titleItems bar">
             <h2>{{ $movieData["theatherName"] }} || {{$movieData["movieName"]}} || {{ $movieData["movieTime"] }}</h2>
