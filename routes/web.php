@@ -14,16 +14,17 @@
 
 Route::group(['middleware'=>'auth'], function(){
 
-    Route::get('/chairselect/{id}', "BioscoopZaalController@index");
+    Route::post('/chairselect/', "BioscoopZaalController@index");
     Route::get('/chairselectadmin', "BioscoopZaalController@indexAdmin");
     Route::resource('movie', 'MovieController');
+    Route::resource('display', 'DisplayController');
     Route::get("/moviedetails", "MovieController@details");
     Route::post("/moviereturn", "MovieController@check");
     Route::post("/savemovie", "MovieController@store");
 
     Route::group(['middleware' => 'admin'], function () {
         Route::get('/agenda', 'AgendaController@index')->name('agenda');
-        
+        Route::get('/update-agenda', 'AgendaController@create')->name('update-agenda');
     });
 });
 Route::post('/scanticket', 'TicketController@check');

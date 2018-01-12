@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\tbl_displays;
+use App\tbl_movies;
 use Illuminate\Http\Request;
+use function Symfony\Component\Debug\Tests\FatalErrorHandler\test_namespaced_function;
 
-class AgendaController extends Controller
+class DisplayController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +16,7 @@ class AgendaController extends Controller
      */
     public function index()
     {
-        return view('agenda');
+        //
     }
 
     /**
@@ -23,17 +26,7 @@ class AgendaController extends Controller
      */
     public function create()
     {
-        $mvs[] = 0;
-        $i = 0;
-        $movies = tbl_movies::all();
-        foreach ($movies as $movie){
-            $mvs[$i] = file_get_contents("http://www.omdbapi.com/?apikey=31d16dc7&i=" . $movie->movie_id . "&plot=full=json");
-            $mvs[$i] = json_decode($mvs[$i]);
-            $i++;
-        }
-//        dd($mvs);
-
-        return view('admin.UpdateAgenda', compact('mvs', 'mvs') );
+        //
     }
 
     /**
@@ -53,9 +46,14 @@ class AgendaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($displayID)
     {
-        //
+        $display = tbl_displays::find($displayID);
+        $movie = tbl_movies::find($display->movie_id);
+        $movie = json_decode(file_get_contents("http://www.omdbapi.com/?apikey=31d16dc7&i=" . $movie->movie_id . "&plot=full=json"));
+        $displayinfo = [$movie, $display];
+
+        return view('ticket.select', compact('displayinfo', 'displayinfo'));
     }
 
     /**
