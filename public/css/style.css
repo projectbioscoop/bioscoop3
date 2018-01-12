@@ -222,6 +222,29 @@
 	padding: 50px;
 }
 
+.card
+{
+	background-color: #f8f8f8;
+	width: 200px;
+	height: 200px;
+	margin: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.inline
+{
+	width: 100%;
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-gap: 0px;
+	grid-row-gap: 25px;
+	grid-auto-rows: 260px;
+	text-align: center;
+}
+
 /* movie check/details page */
 .movie-display {
 	width: 100%;

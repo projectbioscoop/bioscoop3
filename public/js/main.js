@@ -90,8 +90,8 @@ if (locationArray[0] == "http:" && locationArray[1] == "")
             break;
         case "chairselect":
             new __WEBPACK_IMPORTED_MODULE_1__modules_Theather_es6__["a" /* default */]({
-                "amountSeats" : 5,
-                "loveSeats" : false
+                "amountSeats" : document.getElementById("amountSeat").value,
+                "loveSeats" : document.getElementById("loveSeat").value
             });
             break;
         case "display":

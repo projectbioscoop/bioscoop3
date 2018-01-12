@@ -19,7 +19,6 @@
                     <li class="active"><a href="/">Home</a></li>
                     <li><a href={{ URL::to('/moviedetails')}}>Film ophalen</a></li> 
                     <li><a href="{{ URL::to('/movie')}}">Films</a></li>
-                    <li><a href="#">Page 3</a></li>
                     <li><a href={{ URL::to('/moviedetails')}}>Film ophalen</a></li>
                     <li><a href={{ URL::to('/agenda') }}>Agenda</a></li>
                 </ul> 

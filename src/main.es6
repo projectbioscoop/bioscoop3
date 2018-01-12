@@ -16,8 +16,8 @@ if (locationArray[0] == "http:" && locationArray[1] == "")
             break;
         case "chairselect":
             new Theather({
-                "amountSeats" : 5,
-                "loveSeats" : false
+                "amountSeats" : document.getElementById("amountSeat").value,
+                "loveSeats" : document.getElementById("loveSeat").value
             });
             break;
         case "display":
