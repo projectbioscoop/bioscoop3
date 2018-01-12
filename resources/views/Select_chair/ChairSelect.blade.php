@@ -70,7 +70,7 @@
         </ul>
     </div>
     <form action="">
-        <input type="hidden" name="loveSeat" id="loveSeat" value="false">
-        <input type="hidden" name="amountSeat" id="amountSeat" value="3">
+        <input type="hidden" name="loveSeat" id="loveSeat" value= {{ $movieData["seats"] }}>
+        <input type="hidden" name="amountSeat" id="amountSeat" value= {{ $movieData["loveseat"] }}>
     </form>
 @endsection

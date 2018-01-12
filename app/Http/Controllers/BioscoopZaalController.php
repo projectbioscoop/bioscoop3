@@ -58,7 +58,9 @@ class BioscoopZaalController extends Controller
                 "amountOfLoverChairs" =>  $theather[0]["amount_of_loverchairs"],
                 "chairs" => [
                     $chairs
-                ]
+                ],
+                "seats" => $_POST["seat"], 
+                "loveseat" => $_POST["loveseat"] 
             ];
 
             if ($data == null)
