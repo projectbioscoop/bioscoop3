@@ -1,6 +1,7 @@
 // import classen //
 import AdminTheather from "./modules/AdminTheather.es6";
 import Theather from "./modules/Theather.es6";
+import Display from "./modules/Display.es6"
 
 let location = window.location.href;
 let locationArray = location.split('/');
@@ -18,6 +19,9 @@ if (locationArray[0] == "http:" && locationArray[1] == "")
                 "amountSeats" : 5,
                 "loveSeats" : false
             });
+            break;
+        case "display":
+            new Display();
             break;
     }
 }
