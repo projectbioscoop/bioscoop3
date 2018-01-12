@@ -10,7 +10,10 @@
 @endsection
 
 @section('content')
-
+    <div class="welkom">
+        <h1 class="welkomtext">Welkom</h1>
+        <p class="welkomtext">Welkom bij de bioscoop van Bioscoop3.</p>
+    </div>
 @endsection
 
 @section("scripts")

@@ -16,10 +16,11 @@
                     <a class="navbar-brand" href="/">Bioscoop</a> 
                 </div> 
                 <ul class="nav navbar-nav"> 
-                    <li class="active"><a href="/">Home</a></li> 
+                    <li class="active"><a href="/">Home</a></li>
                     <li><a href={{ URL::to('/moviedetails')}}>Film ophalen</a></li> 
                     <li><a href="{{ URL::to('/movie')}}">Films</a></li>
-                    <li><a href="#">Page 3</a></li> 
+                    <li><a href={{ URL::to('/moviedetails')}}>Film ophalen</a></li>
+                    <li><a href={{ URL::to('/agenda') }}>Agenda</a></li>
                 </ul> 
                 <form class="navbar-form navbar-right"> 
                     <div class="input-group"> 
@@ -48,9 +49,6 @@
     <div class="globalWrapper">
         <div class="sesionLeft">
             @yield('LeftBar')
-        </div>
-        <div class="container">
-            @yield('content')
         </div>
         <div class="sesionRight">
             @yield('RightBar')
@@ -95,56 +93,28 @@
 
 	<div class="hero-img">
 		@yield('hero-content')
+        @yield('content')
 	</div>
-
 		
 <footer>
     <div class="footer" id="footer">
         <div class="container">
             <div class="row">
-                <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
-                    <h3> Lorem Ipsum </h3>
+                <div class="col-lg-8  col-md-2 col-sm-4 col-xs-6">
+                    <h3> Contact Gegevens </h3>
                     <ul>
-                        <li> <a href="#"> Lorem Ipsum </a> </li>
-                        <li> <a href="#"> Lorem Ipsum </a> </li>
-                        <li> <a href="#"> Lorem Ipsum </a> </li>
-                        <li> <a href="#"> Lorem Ipsum </a> </li>
+                        <li><b>Telefoonnummer :</b> 0612345678</li>
+                        <li> <b> E-Mail :</b> d183028@edu.rocwb.nl</li>
+                        <li><b> Adres :</b> Terheijdenseweg 350 4826AA Breda</li>
                     </ul>
                 </div>
-                <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
-                    <h3> Lorem Ipsum </h3>
-                    <ul>
-                        <li> <a href="#"> Lorem Ipsum </a> </li>
-                        <li> <a href="#"> Lorem Ipsum </a> </li>
-                        <li> <a href="#"> Lorem Ipsum </a> </li>
-                        <li> <a href="#"> Lorem Ipsum </a> </li>
-                    </ul>
-                </div>
-                <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
-                    <h3> Lorem Ipsum </h3>
-                    <ul>
-                        <li> <a href="#"> Lorem Ipsum </a> </li>
-                        <li> <a href="#"> Lorem Ipsum </a> </li>
-                        <li> <a href="#"> Lorem Ipsum </a> </li>
-                        <li> <a href="#"> Lorem Ipsum </a> </li>
-                    </ul>
-                </div>
-                <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
-                    <h3> Lorem Ipsum </h3>
-                    <ul>
-                        <li> <a href="#"> Lorem Ipsum </a> </li>
-                        <li> <a href="#"> Lorem Ipsum </a> </li>
-                        <li> <a href="#"> Lorem Ipsum </a> </li>
-                        <li> <a href="#"> Lorem Ipsum </a> </li>
-                    </ul>
-                </div>
-                <div class="col-lg-3  col-md-3 col-sm-6 col-xs-12 ">
-                    <h3> Lorem Ipsum </h3>
+                <div class="col-lg-8   col-md-3 col-sm-6 col-xs-12 ">
+                    <h3> Abboneer op de nieuwsbrief</h3>
                     <ul>
                         <li>
                             <div class="input-append newsletter-box text-center">
-                                <input type="text" class="full text-center" placeholder="Email ">
-                                <button class="btn  bg-gray" type="button"> Lorem ipsum <i class="fa fa-long-arrow-right"> </i> </button>
+                                <input type="text" class="full text-center" placeholder="E-mail">
+                                <button class="btn  bg-gray" type="button"> Abboneer <i class="fa fa-long-arrow-right"> </i> </button>
                             </div>
                         </li>
                     </ul>
@@ -157,11 +127,15 @@
                     </ul>
                 </div>
             </div>
+            <div class="container">
+                <p class="pull-left"> Copyright © Bioscoop </p>
+            </div>
             <!--/.row--> 
         </div>
         <!--/.container--> 
     </div>
     <!--/.footer-->
+
     <!--/.footer-bottom--> 
 </footer>
     <script src="https://cdn.jsdelivr.net/jsbarcode/3.6.0/JsBarcode.all.min.js"> </script>
