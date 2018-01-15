@@ -247,12 +247,13 @@ class UpdateAgenda {
         console.log(select);
 
         select.addEventListener( "change", () => {
-            let submit = document.getElementById( 'submitOption' );
             let updateForm = document.getElementById( 'updateForm' );
             let selected = select.options[select.selectedIndex].value;
             updateForm.innerHTML = "";
+            updateForm.style = "border: 2px #aaaaaa solid;";
             for ( let i = 0; i < selected; i++ ) {
-                updateForm.innerHTML += "<label for='movie'>Film</label>" +
+                updateForm.innerHTML += "<div class='movie-form'>" +
+                    "<label for='movie'>Film</label>" +
                     "<select name='movie' id='movie'>" + "</select>" +
                     "<label for='date' id='date'>Datum</label>" +
                     "<input type='date' id='date' name='date'>" +
@@ -267,7 +268,8 @@ class UpdateAgenda {
                     "<select name='theaterRoom' id='theaterRoom'>" +
                     "<option value=''>Zaal 1</option>" +
                     "</select>" +
-                    "<span></span>";
+                    "</div>" +
+                    "<br>";
 
             }
 

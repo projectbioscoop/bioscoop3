@@ -2,13 +2,16 @@
     height: 635px;
 }
 
-#updateForm {
-    overflow: hidden;
-    overflow-y: scroll;
-    height: 565px;
+::-webkit-scrollbar {
+    display: none;
 }
 
-form {
-    display: flex;
-    flex-direction: column;
+#updateForm {
+    overflow-y: scroll;
+    height: 535px;
+}
+
+.movie-form {
+    padding-bottom: 5px;
+
 }
