@@ -96,12 +96,6 @@ class DatabaseSeeder extends Seeder
         {
             $movie                      = new \App\tbl_movies();
             $movie->movie_id            = $movieArray[$i][0];
-            $movie->movie_title         = $movieArray[$i][1];
-            // $movie->language_version    = $faker->languageCode;
-            // $movie->genre               = $faker->word;
-            // $movie->projection          = $faker->word;
-            $movie->movie_info          = $faker->sentence;
-            // $movie->requirements        = $faker->sentence;
             $movie->save();
         }
 
