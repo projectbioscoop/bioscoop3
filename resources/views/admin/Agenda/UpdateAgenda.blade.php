@@ -5,7 +5,7 @@
     @endsection
 
 @section('content')
-
+<div class="agenda-planning">
     <h2>Agenda planning</h2>
     <select name="selectionAmount" id="selectionAmount">
         @for($i = 0; $i <= 20; $i++)
@@ -40,4 +40,5 @@
         {{--<input type="submit" value="Update">--}}
     </div>
     </form>
+</div>
 @endsection

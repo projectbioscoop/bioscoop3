@@ -1,0 +1,14 @@
+.agenda-planning {
+    height: 635px;
+}
+
+#updateForm {
+    overflow: hidden;
+    overflow-y: scroll;
+    height: 565px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}

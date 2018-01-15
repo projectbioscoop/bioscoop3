@@ -250,7 +250,8 @@ class UpdateAgenda {
             let submit = document.getElementById( 'submitOption' );
             let updateForm = document.getElementById( 'updateForm' );
             let selected = select.options[select.selectedIndex].value;
-            for ( let i = 0; i <= selected; i++ ) {
+            updateForm.innerHTML = "";
+            for ( let i = 0; i < selected; i++ ) {
                 updateForm.innerHTML += "<label for='movie'>Film</label>" +
                     "<select name='movie' id='movie'>" + "</select>" +
                     "<label for='date' id='date'>Datum</label>" +
@@ -265,7 +266,9 @@ class UpdateAgenda {
                     "<label for='theaterRoom'>Bioscoopzaal</label>" +
                     "<select name='theaterRoom' id='theaterRoom'>" +
                     "<option value=''>Zaal 1</option>" +
-                    "</select>";
+                    "</select>" +
+                    "<span></span>";
+
             }
 
         } )
