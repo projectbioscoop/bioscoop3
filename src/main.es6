@@ -1,6 +1,7 @@
 // import classen //
 import AdminTheather from "./modules/AdminTheather.es6";
 import Theather from "./modules/Theather.es6";
+import UpdateAgenda from "./modules/UpdateAgenda.es6";
 
 let location = window.location.href;
 let locationArray = location.split('/');

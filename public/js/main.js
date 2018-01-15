@@ -71,7 +71,9 @@
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__modules_AdminTheather_es6__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__modules_Theather_es6__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__modules_UpdateAgenda_es6__ = __webpack_require__(3);
 // import classen //
+
 
 
 
@@ -91,6 +93,9 @@ if (locationArray[0] == "http:" && locationArray[1] == "")
                 "amountSeats" : 5,
                 "loveSeats" : false
             });
+            break;
+        case "update-agenda":
+            new __WEBPACK_IMPORTED_MODULE_2__modules_UpdateAgenda_es6__["a" /* default */]();
             break;
     }
 }
@@ -223,6 +228,51 @@ class Theather
     
 }
 /* harmony export (immutable) */ __webpack_exports__["a"] = Theather;
+
+
+/***/ }),
+/* 3 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+class UpdateAgenda {
+
+    constructor() {
+        this.start();
+    }
+
+    start() {
+        console.log("1");
+        let select = document.getElementById( 'selectionAmount' );
+        console.log(select);
+
+        select.addEventListener( "change", () => {
+            let submit = document.getElementById( 'submitOption' );
+            let updateForm = document.getElementById( 'updateForm' );
+            let selected = select.options[select.selectedIndex].value;
+            for ( let i = 0; i <= selected; i++ ) {
+                updateForm.innerHTML += "<label for='movie'>Film</label>" +
+                    "<select name='movie' id='movie'>" + "</select>" +
+                    "<label for='date' id='date'>Datum</label>" +
+                    "<input type='date' id='date' name='date'>" +
+                    "<label for='startTime'>Start Tijd</label>" +
+                    "<select name='startTime' id='startTime'>" +
+                    "<option value=''>15:00 - 17:00</option>" +
+                    "<option value=''>18:00 - 20:00</option>" +
+                    "<option value=''>20:30 - 22:00</option>" +
+                    "<option value=''>22:30 - 24:00</option>" +
+                    "</select>" +
+                    "<label for='theaterRoom'>Bioscoopzaal</label>" +
+                    "<select name='theaterRoom' id='theaterRoom'>" +
+                    "<option value=''>Zaal 1</option>" +
+                    "</select>";
+            }
+
+        } )
+
+    }
+}
+/* harmony export (immutable) */ __webpack_exports__["a"] = UpdateAgenda;
 
 
 /***/ })
