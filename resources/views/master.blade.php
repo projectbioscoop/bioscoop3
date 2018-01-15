@@ -91,9 +91,11 @@
 	{{--</header>--}}
 	
 
+    <div class="container">
+        @yield('content')
+    </div>
 	<div class="hero-img">
 		@yield('hero-content')
-        @yield('content')
 	</div>
 		
 <footer>
