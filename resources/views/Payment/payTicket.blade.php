@@ -27,5 +27,14 @@
         <h5>2x zitplaats €14,00 = €28,00</h5>
     </div>
 
-    <button>paypal</button>
+    <form name="_xclick" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+        <input type="hidden" name="cmd" value="_xclick">
+        <input type="hidden" name="business" value="fussia@outlook.com">
+        <input type="hidden" name="currency_code" value="EUR">
+        <input type="hidden" name="item_name" value="Bioscoop Tickets">
+        <input type="hidden" name="amount" value="28.00">
+        <input type="image" src="https://www.paypalobjects.com/nl_NL/NL/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal, de veilige en complete manier van online betalen.">
+        <img alt="" border="0" src="https://www.paypalobjects.com/nl_NL/i/scr/pixel.gif" width="1" height="1">
+    </form>
+
 @endsection
