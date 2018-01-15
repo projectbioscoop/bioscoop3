@@ -11,8 +11,9 @@ class BioscoopZaalController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id)
+    public function index()
     {
+        $id = $_POST['displayid'];
         $display = \App\tbl_displays::find($id);
         $theather = \App\tbl_theather::where("theather_id",$display["theather_id"])->get();
         $rows = \App\tbl_z_rules::where("theather_id",$display["theather_id"])->get();
@@ -28,9 +29,11 @@ class BioscoopZaalController extends Controller
             "amountOfLoverChairs" =>  $theather[0]["amount_of_loverchairs"],
             "chairs" => [
                 $chairs
-            ]
+            ],
+            "seats" => $_POST["seat"],
+            "loveseat" => $_POST["loveseat"]
         ];
-
+        dd($movieData);
         return view('Select_chair.ChairSelect', compact("movieData"));
     }
 
@@ -55,7 +58,9 @@ class BioscoopZaalController extends Controller
                 "amountOfLoverChairs" =>  $theather[0]["amount_of_loverchairs"],
                 "chairs" => [
                     $chairs
-                ]
+                ],
+                "seats" => $_POST["seat"], 
+                "loveseat" => $_POST["loveseat"] 
             ];
 
             if ($data == null)
@@ -66,9 +71,8 @@ class BioscoopZaalController extends Controller
             {
                 $data = array_merge($data , $movieData);
             }
-
-            return view('admin.AdminTheatherReview', compact("data"));
         }
+        return view('admin.AdminTheatherReview', compact("data"));        
     }
 
     /**

@@ -60,5 +60,17 @@
 @section('RightBar')
     <div class="right_bar col-lg-12">
         <h2>Kiezen</h2>
+        <ul>
+            <li><img src="/img/bioscoop/seat.png" alt="seat" class="chairS"> normale stoel..</li>
+            <li><img src="/img/bioscoop/seat.png" alt="seat" class="bezet chairS"> bezette normale stoel..</li>
+            <li><img src="/img/bioscoop/seatSelect.png" alt="seat" class="chairS"> geselecteerde normale stoel..</li>
+            <li><img src="/img/bioscoop/loveseat.png" alt="loveseat" class="chairL"> liefdesstoel..</li>
+            <li><img src="/img/bioscoop/loveseat.png" alt="loveseat" class="bezet chairL"> bezette liefdesstoel..</li>
+            <li><img src="/img/bioscoop/loveseatSelect.png" alt="loveseat" class="chairL"> geselecteerde liefdesstoel..</li>
+        </ul>
     </div>
+    <form action="">
+        <input type="hidden" name="loveSeat" id="loveSeat" value= {{ $movieData["seats"] }}>
+        <input type="hidden" name="amountSeat" id="amountSeat" value= {{ $movieData["loveseat"] }}>
+    </form>
 @endsection

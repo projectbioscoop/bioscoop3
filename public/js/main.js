@@ -71,7 +71,9 @@
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__modules_AdminTheather_es6__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__modules_Theather_es6__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__modules_Display_es6__ = __webpack_require__(3);
 // import classen //
+
 
 
 
@@ -88,9 +90,12 @@ if (locationArray[0] == "http:" && locationArray[1] == "")
             break;
         case "chairselect":
             new __WEBPACK_IMPORTED_MODULE_1__modules_Theather_es6__["a" /* default */]({
-                "amountSeats" : 5,
-                "loveSeats" : false
+                "amountSeats" : document.getElementById("amountSeat").value,
+                "loveSeats" : document.getElementById("loveSeat").value
             });
+            break;
+        case "display":
+            new __WEBPACK_IMPORTED_MODULE_2__modules_Display_es6__["a" /* default */]();
             break;
     }
 }
@@ -223,6 +228,62 @@ class Theather
     
 }
 /* harmony export (immutable) */ __webpack_exports__["a"] = Theather;
+
+
+/***/ }),
+/* 3 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+class Display
+
+{
+    constructor()
+    {
+        this.loveseat = document.getElementById("loveseatselect");
+        this.loveseat.disabled = false;
+        this.loveseatbool = document.getElementById("loveseat");
+        this.normal = document.getElementById("normalselect");
+        this.normal.disabled = false;
+        this.start();
+    }
+
+    start()
+    {
+        this.loveseat.addEventListener("change", () => {
+            let selected = this.loveseat.options[this.loveseat.selectedIndex].value;
+            if(selected != 0)
+            {
+                console.log(this.normal.disabled);
+                this.normal.disabled = true;
+                this.loveseatbool.value = "true";
+                console.log(this.normal.disabled);
+            }
+            else
+            {
+                this.normal.disabled = false;
+            }
+        })
+
+        this.normal.addEventListener("change", () => {
+            let selected = this.normal.options[this.normal.selectedIndex].value;
+            console.log(selected);
+            if(selected != 0)
+            {
+                this.loveseat.disabled = true;
+                this.loveseatbool.value = "false";
+            }
+            else
+            {
+                this.loveseat.disabled = false;
+            }
+        })
+    }
+}
+/* harmony export (immutable) */ __webpack_exports__["a"] = Display;
+
+
+
 
 
 /***/ })
