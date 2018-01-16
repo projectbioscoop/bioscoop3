@@ -14,28 +14,57 @@ export default class Theather
         this.chairs = document.getElementsByClassName("chair");
         for (let i = 0; i < this.chairs.length; i++)
         {
-            this.chairs[i].addEventListener("mouseover", () => {
-                if (!this.chairs[i].classList.contains("bezet") && !this.chairs[i].classList.contains("loveSeat"))
-                {    
-                    this.colorChangeSeat(this.chairs[i]);
-                    this.setSeatCompanion(this.chairs[i]);
-                }
-            });
+            if (this.loveSeats)
+            {
+                this.chairs[i].addEventListener("mouseover", () => {
+                    if (!this.chairs[i].classList.contains("bezet") && this.chairs[i].classList.contains("loveSeat"))
+                    {
+                        this.colorChangeSeat(this.chairs[i]);
+                        this.setSeatCompanion(this.chairs[i]);
+                    }
+                });
 
-            this.chairs[i].addEventListener("mouseout", () => {
-                if (!this.chairs[i].classList.contains("bezet") && !this.chairs[i].classList.contains("loveSeat"))
-                {
-                    this.colorChangeSeat(this.chairs[i]);
-                    this.setSeatCompanion(this.chairs[i]);
-                }
-            });
+                this.chairs[i].addEventListener("mouseout", () => {
+                    if (!this.chairs[i].classList.contains("bezet") && this.chairs[i].classList.contains("loveSeat"))
+                    {
+                        this.colorChangeSeat(this.chairs[i]);
+                        this.setSeatCompanion(this.chairs[i]);
+                    }
+                });
+            }
+            else
+            {
+                this.chairs[i].addEventListener("mouseover", () => {
+                    if (!this.chairs[i].classList.contains("bezet") && !this.chairs[i].classList.contains("loveSeat"))
+                    {
+                        this.colorChangeSeat(this.chairs[i]);
+                        this.setSeatCompanion(this.chairs[i]);
+                    }
+                });
+
+                this.chairs[i].addEventListener("mouseout", () => {
+                    if (!this.chairs[i].classList.contains("bezet") && !this.chairs[i].classList.contains("loveSeat"))
+                    {
+                        this.colorChangeSeat(this.chairs[i]);
+                        this.setSeatCompanion(this.chairs[i]);
+                    }
+                });
+            }
+
         }
     }
 
     ClickEvent()
     {
         document.getElementsByClassName("chair").addEventListener("click", ()=>{
-            fetch("google.com/"+this.selected);//url
+            $.ajax({
+                method: "POST",
+                url: "modules/seatsHandler.js",
+                data: { seat : this.selected }
+            })
+                .done(function( msg ) {
+                    alert( "Stoel(len) gereserveerd!: " + msg );
+                });
         });
     }
 
@@ -47,13 +76,13 @@ export default class Theather
             seat.src = "/img/bioscoop/seatSelect.png";
             break;
             case "/img/bioscoop/loveseat.png":
-            seat.src = "/img/bioscoop/loveseatSelect.png"
+            seat.src = "/img/bioscoop/loveseatSelect.png";
             break;
             case "/img/bioscoop/seatSelect.png":
             seat.src = "/img/bioscoop/seat.png";
             break;
             case "/img/bioscoop/loveseatSelect.png":
-            seat.src = "/img/bioscoop/loveseat.png"
+            seat.src = "/img/bioscoop/loveseat.png";
             break;
         }
     }
@@ -67,16 +96,33 @@ export default class Theather
         {
             if (seat.id != ("seat-" + i) && i >= 0)
             {
-                if (!document.getElementById("seat-" + i).classList.contains("loveSeat"))
+                if (this.loveSeats)
                 {
-                    if (!document.getElementById("seat-" + i).classList.contains("bezet"))
+                    if (document.getElementById("seat-" + i).classList.contains("loveSeat"))
                     {
-                        this.colorChangeSeat(document.getElementById("seat-" + i));
+                        if (!document.getElementById("seat-" + i).classList.contains("bezet"))
+                        {
+                            this.colorChangeSeat(document.getElementById("seat-" + i));
+                        }
+                        else
+                        {
+                            amountSeatsMax++;
+                        }
                     }
-                    else
+                }
+                else
+                {
+                    if (!document.getElementById("seat-" + i).classList.contains("loveSeat"))
                     {
-                        amountSeatsMax++;
-                    }   
+                        if (!document.getElementById("seat-" + i).classList.contains("bezet"))
+                        {
+                            this.colorChangeSeat(document.getElementById("seat-" + i));
+                        }
+                        else
+                        {
+                            amountSeatsMax++;
+                        }
+                    }
                 }
             }
         }
