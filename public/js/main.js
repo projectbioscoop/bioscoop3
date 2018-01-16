@@ -157,28 +157,50 @@ class Theather
         this.chairs = document.getElementsByClassName("chair");
         for (let i = 0; i < this.chairs.length; i++)
         {
-            this.chairs[i].addEventListener("mouseover", () => {
-                if (!this.chairs[i].classList.contains("bezet") && !this.chairs[i].classList.contains("loveSeat"))
-                {    
-                    this.colorChangeSeat(this.chairs[i]);
-                    this.setSeatCompanion(this.chairs[i]);
-                }
-            });
+            if (this.loveSeats)
+            {
+                this.chairs[i].addEventListener("mouseover", () => {
+                    if (!this.chairs[i].classList.contains("bezet") && this.chairs[i].classList.contains("loveSeat"))
+                    {
+                        this.colorChangeSeat(this.chairs[i]);
+                        this.setSeatCompanion(this.chairs[i]);
+                    }
+                });
 
-            this.chairs[i].addEventListener("mouseout", () => {
-                if (!this.chairs[i].classList.contains("bezet") && !this.chairs[i].classList.contains("loveSeat"))
-                {
-                    this.colorChangeSeat(this.chairs[i]);
-                    this.setSeatCompanion(this.chairs[i]);
-                }
-            });
+                this.chairs[i].addEventListener("mouseout", () => {
+                    if (!this.chairs[i].classList.contains("bezet") && this.chairs[i].classList.contains("loveSeat"))
+                    {
+                        this.colorChangeSeat(this.chairs[i]);
+                        this.setSeatCompanion(this.chairs[i]);
+                    }
+                });
+            }
+            else
+            {
+                this.chairs[i].addEventListener("mouseover", () => {
+                    if (!this.chairs[i].classList.contains("bezet") && !this.chairs[i].classList.contains("loveSeat"))
+                    {
+                        this.colorChangeSeat(this.chairs[i]);
+                        this.setSeatCompanion(this.chairs[i]);
+                    }
+                });
+
+                this.chairs[i].addEventListener("mouseout", () => {
+                    if (!this.chairs[i].classList.contains("bezet") && !this.chairs[i].classList.contains("loveSeat"))
+                    {
+                        this.colorChangeSeat(this.chairs[i]);
+                        this.setSeatCompanion(this.chairs[i]);
+                    }
+                });
+            }
+
         }
     }
 
     ClickEvent()
     {
         document.getElementsByClassName("chair").addEventListener("click", ()=>{
-            fetch("google.com/"+this.selected);//url
+            fetch("payment/seats"+this.selected);//url
         });
     }
 
@@ -210,16 +232,33 @@ class Theather
         {
             if (seat.id != ("seat-" + i) && i >= 0)
             {
-                if (!document.getElementById("seat-" + i).classList.contains("loveSeat"))
+                if (this.loveSeats)
                 {
-                    if (!document.getElementById("seat-" + i).classList.contains("bezet"))
+                    if (document.getElementById("seat-" + i).classList.contains("loveSeat"))
                     {
-                        this.colorChangeSeat(document.getElementById("seat-" + i));
+                        if (!document.getElementById("seat-" + i).classList.contains("bezet"))
+                        {
+                            this.colorChangeSeat(document.getElementById("seat-" + i));
+                        }
+                        else
+                        {
+                            amountSeatsMax++;
+                        }
                     }
-                    else
+                }
+                else
+                {
+                    if (!document.getElementById("seat-" + i).classList.contains("loveSeat"))
                     {
-                        amountSeatsMax++;
-                    }   
+                        if (!document.getElementById("seat-" + i).classList.contains("bezet"))
+                        {
+                            this.colorChangeSeat(document.getElementById("seat-" + i));
+                        }
+                        else
+                        {
+                            amountSeatsMax++;
+                        }
+                    }
                 }
             }
         }
