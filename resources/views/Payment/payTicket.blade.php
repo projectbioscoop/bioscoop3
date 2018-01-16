@@ -3,6 +3,7 @@
 
 
 @section('content')
+
     <h1>Order info</h1>
     <div class="filmnaam">
         <h2>{{$data[0]->Title}}</h2>
@@ -21,19 +22,19 @@
     </div>
     <div class="aanvangFilm">
         <h4>Aanvang film:</h4>
-        <h5></h5>
+        <h5>{{$data[3]->time}}</h5>
     </div>
     <div class="filmduur">
         <h4>Filmduur:</h4>
-        <h5>135 Minuten</h5>
+        <h5>{{$data[0]->Title}}</h5>
     </div>
     <div class="filmzaal">
         <h4>Filmzaal:</h4>
-        <h5>Zaal 3</h5>
+        <h5>{{$data[3]->theater_id}}</h5>
     </div>
     <div class="prijs">
         <h4>Prijs:</h4>
-        <h5>2x zitplaats €14,00 = €28,00</h5>
+        <h5></h5>
     </div>
 
     <form name="_xclick" action="https://www.paypal.com/cgi-bin/webscr" method="post">

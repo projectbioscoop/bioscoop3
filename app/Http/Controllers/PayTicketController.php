@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\tbl_displays;
+use App\tbl_movies;
 use Illuminate\Http\Request;
 
 class PayTicketController extends Controller
@@ -13,7 +15,12 @@ class PayTicketController extends Controller
      */
     public function index()
     {
-        $movie = "tt2283362";
+
+
+        $movie = "tt4468740";
+        $id = tbl_movies::where('movie_id','=', $movie)->select('id')->first();
+//        dd($id);
+        $display = tbl_displays::find(4);
         $loveseats = false;
         $chairs = [
             "seat-1",
@@ -26,7 +33,8 @@ class PayTicketController extends Controller
         $data = [
             $movie,
             $loveseats,
-            $chairs
+            $chairs,
+            $display
         ];
         return view('Payment.payTicket', compact('data','data'));
 
