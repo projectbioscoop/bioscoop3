@@ -2,13 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\tbl_displays;
-use App\tbl_movies;
 use App\tbl_price;
 use Illuminate\Http\Request;
-use function Symfony\Component\Debug\Tests\FatalErrorHandler\test_namespaced_function;
 
-class DisplayController extends Controller
+class PriceController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +14,8 @@ class DisplayController extends Controller
      */
     public function index()
     {
-        //
+        $price = tbl_price::find(1);
+        return view('price.overzicht', compact('price','price'));
     }
 
     /**
@@ -47,15 +45,9 @@ class DisplayController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($displayID)
+    public function show($id)
     {
-        $display = tbl_displays::find($displayID);
-        $movie = tbl_movies::find($display->movie_id);
-        $price = tbl_price::find(1);
-        $movie = json_decode(file_get_contents("http://www.omdbapi.com/?apikey=31d16dc7&i=" . $movie->movie_id . "&plot=full=json"));
-        $displayinfo = [$movie, $display,$price];
-
-        return view('ticket.select', compact('displayinfo', 'displayinfo'));
+        //
     }
 
     /**
