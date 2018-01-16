@@ -45,9 +45,9 @@ Route::get('/payment', function () {
 
 
 Route::get('/payTicket', 'PayTicketController@index');
-Route::get('/payTicket', function () {
-    return view('Payment.payTicket');
-})->name('payTicket');
+//Route::get('/payTicket', function () {
+//    return view('Payment.payTicket');
+//})->name('payTicket');
 
 
 if(env('APP_ENV') == 'production')

@@ -21,6 +21,7 @@
                     <li><a href="{{ URL::to('/movie')}}">Films</a></li>
                     <li><a href={{ URL::to('/moviedetails')}}>Film ophalen</a></li>
                     <li><a href={{ URL::to('/agenda') }}>Agenda</a></li>
+                    <li><a href={{ URL::to('/Payment')}}>Betalen</a></li>
                 </ul> 
                 <form class="navbar-form navbar-right"> 
                     <div class="input-group"> 
