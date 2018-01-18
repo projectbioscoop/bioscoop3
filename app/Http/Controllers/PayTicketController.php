@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\tbl_displays;
 use App\tbl_movies;
+use App\tbl_price;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PayTicketController extends Controller
 {
@@ -27,6 +29,16 @@ class PayTicketController extends Controller
             "seat-2",
             "seat-3"
         ];
+        if ($loveseats)
+        {
+            $price = DB::table('tbl_price')->select('price')->where ('seatname', '=', 'loveseat')->get();
+        }
+        else
+        {
+            $price = DB::table('tbl_price')->select('price')->where ('seatname', '=', 'normalseat')->get();
+        }
+        $price = $price[0]->price * count($chairs);
+
 
         $movie = file_get_contents("http://www.omdbapi.com/?apikey=31d16dc7&i=" . $movie . "&plot=full=json");
         $movie = json_decode($movie);
@@ -34,7 +46,8 @@ class PayTicketController extends Controller
             $movie,
             $loveseats,
             $chairs,
-            $display
+            $display,
+            $price
         ];
         return view('Payment.payTicket', compact('data','data'));
 

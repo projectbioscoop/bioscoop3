@@ -15,8 +15,8 @@ class CreateTblPriceTable extends Migration
     {
         Schema::create('tbl_price', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('normalprice');
-            $table->integer('loveseatprice');
+            $table->string('seatname');
+            $table->integer('price');
             $table->timestamps();
         });
     }

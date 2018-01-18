@@ -151,7 +151,7 @@ class DatabaseSeeder extends Seeder
             
             for ($j = 1;$j < rand(3, 10);$j++)
             {
-                $order_id       = $j;
+                $order_id = $j;
                 $user_id;
                 $amountTickets  = rand(1, 5);
                 $count          = 0;
@@ -211,6 +211,19 @@ class DatabaseSeeder extends Seeder
                 $chair->display_id  = $i;
                 $chair->save();
             }
+        }
+        $basePrice = 15;
+        $loveSeatPrice = ($basePrice * 2) / 100 * 110;
+        $prices = [
+            ["seat" => "normalseat", "price" => $basePrice],
+            ["seat" => "loveseat", "price" => $loveSeatPrice]
+        ];
+        for ($i = 0;$i < count($prices);$i++)
+        {
+            $price = new \App\tbl_price();
+            $price->seatname = $prices[$i]["seat"];
+            $price->price = $prices[$i]{"price"};
+            $price->save();
         }
     }
 }
