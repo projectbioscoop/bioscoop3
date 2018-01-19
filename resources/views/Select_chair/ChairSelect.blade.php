@@ -5,7 +5,7 @@
 @endsection
 @section ('content')
 <h2>{{ $movieData["theatherName"] }}</h2>
-<div class="seats col-lg-12">
+<div class="seats col-lg-12" id="conS">
 <?php $count = $movieData["capacity"]; $countLove = 0; ?>
 @if (isset($movieData["rowsLoversSeats"]))
 @for ($j = ($movieData["capacity"] / $movieData["amountOfChairsPerRow"] + count($movieData["rowsLoversSeats"])) - 1; $j > 0 ; $j--)
@@ -40,8 +40,8 @@
 @endif
 </div>
 
-<div class="scherm col-lg-12">
-    <img src="/img/bioscoop/scherm.png" alt="Tv-screen">
+<div class="scherm col-md-12">
+    <img class="col-md-12" src="/img/bioscoop/scherm.png" alt="Tv-screen">
 </div>
 
 @endsection
@@ -70,7 +70,9 @@
         </ul>
     </div>
     <form action="">
-        <input type="hidden" name="loveSeat" id="loveSeat" value= {{ $movieData["seats"] }}>
-        <input type="hidden" name="amountSeat" id="amountSeat" value= {{ $movieData["loveseat"] }}>
+        <input type="hidden" name="loveSeat" id="loveSeat" value= {{ $movieData["loveseat"] }}>
+        <input type="hidden" name="amountSeat" id="amountSeat" value= {{ $movieData["seats"] }}>
+    </form>
+    <form action="/payTicket" id="formSD" name="formSDname">
     </form>
 @endsection

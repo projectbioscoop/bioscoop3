@@ -5,8 +5,9 @@ export default class Theather
         this.chairs;
         this.selected;
         this.amountSeats = options.amountSeats;
-        this.loveSeats = options.loveSeats;
-        this.HoverEvent()
+        this.loveSeats = (options.loveSeats == "true" ? true : false);
+        this.HoverEvent();
+        this.ClickEvent();
     }
 
     HoverEvent()
@@ -14,10 +15,11 @@ export default class Theather
         this.chairs = document.getElementsByClassName("chair");
         for (let i = 0; i < this.chairs.length; i++)
         {
-            if (this.loveSeats)
+            console.log(this.loveSeats);
+            if (!this.loveSeats)
             {
                 this.chairs[i].addEventListener("mouseover", () => {
-                    if (!this.chairs[i].classList.contains("bezet") && this.chairs[i].classList.contains("loveSeat"))
+                    if (!this.chairs[i].classList.contains("bezet") && !this.chairs[i].classList.contains("loveSeat"))
                     {
                         this.colorChangeSeat(this.chairs[i]);
                         this.setSeatCompanion(this.chairs[i]);
@@ -25,17 +27,17 @@ export default class Theather
                 });
 
                 this.chairs[i].addEventListener("mouseout", () => {
-                    if (!this.chairs[i].classList.contains("bezet") && this.chairs[i].classList.contains("loveSeat"))
+                    if (!this.chairs[i].classList.contains("bezet") && !this.chairs[i].classList.contains("loveSeat"))
                     {
                         this.colorChangeSeat(this.chairs[i]);
                         this.setSeatCompanion(this.chairs[i]);
                     }
                 });
             }
-            else
+            else if (this.loveSeats)
             {
                 this.chairs[i].addEventListener("mouseover", () => {
-                    if (!this.chairs[i].classList.contains("bezet") && !this.chairs[i].classList.contains("loveSeat"))
+                    if (!this.chairs[i].classList.contains("bezet") && this.chairs[i].classList.contains("loveSeat"))
                     {
                         this.colorChangeSeat(this.chairs[i]);
                         this.setSeatCompanion(this.chairs[i]);
@@ -43,7 +45,7 @@ export default class Theather
                 });
 
                 this.chairs[i].addEventListener("mouseout", () => {
-                    if (!this.chairs[i].classList.contains("bezet") && !this.chairs[i].classList.contains("loveSeat"))
+                    if (!this.chairs[i].classList.contains("bezet") && this.chairs[i].classList.contains("loveSeat"))
                     {
                         this.colorChangeSeat(this.chairs[i]);
                         this.setSeatCompanion(this.chairs[i]);
@@ -56,15 +58,20 @@ export default class Theather
 
     ClickEvent()
     {
-        document.getElementsByClassName("chair").addEventListener("click", ()=>{
-            $.ajax({
-                method: "POST",
-                url: "modules/seatsHandler.js",
-                data: { seat : this.selected }
-            })
-                .done(function( msg ) {
-                    alert( "Stoel(len) gereserveerd!: " + msg );
-                });
+        // zet scripts uit als je click
+        document.getElementById("conS").addEventListener("click", ()=>{
+            console.log(1);
+            // make form
+            let conForm;
+            conForm = "<input type=\"hidden\" id=\"chairL\" value=\""+this.chairs.length+"\"></input>";
+            for (let i = 0; i < this.chairs.length; i++)
+            {
+                conForm = conForm + "<input type=\"hidden\" id=\"seat"+i+"\" value=\""+this.chairs[i]+"\"></input>";
+            }
+            conForm = conForm + "<input type=\"hidden\" id=\"LSB\" value=\""+this.loveSeats+"\"></input>";
+            document.getElementById('formSD').innerHTML = conForm;
+            // send form
+            document.formSDname.submit();
         });
     }
 
@@ -103,6 +110,7 @@ export default class Theather
                         if (!document.getElementById("seat-" + i).classList.contains("bezet"))
                         {
                             this.colorChangeSeat(document.getElementById("seat-" + i));
+                            this.selected = "seat-" +i;
                         }
                         else
                         {
@@ -117,6 +125,7 @@ export default class Theather
                         if (!document.getElementById("seat-" + i).classList.contains("bezet"))
                         {
                             this.colorChangeSeat(document.getElementById("seat-" + i));
+                            this.selected = "seat-" + i;
                         }
                         else
                         {

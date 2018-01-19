@@ -14,7 +14,7 @@
 
 Route::group(['middleware'=>'auth'], function(){
 
-    Route::post('/chairselect/', "BioscoopZaalController@index");
+    Route::post('/chairselect/1', "BioscoopZaalController@index");
     Route::get('/chairselectadmin', "BioscoopZaalController@indexAdmin");
     Route::resource('movie', 'MovieController');
     Route::resource('display', 'DisplayController');
@@ -46,7 +46,7 @@ Route::get('/payment', function () {
 })->name('PaymentComplete');
 
 
-Route::get('/Payment', 'PayTicketController@index');
+Route::post('/payTicket', 'PayTicketController@index');
 //Route::get('/payTicket', function () {
 //    return view('Payment.payTicket');
 //})->name('payTicket');

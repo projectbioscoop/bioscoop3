@@ -5,7 +5,8 @@
 	<title>Bioscoop</title>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Biryani" rel="stylesheet"> 
     @yield('links')
 </head>
 <body>
@@ -52,6 +53,9 @@
         <div class="sesionLeft">
             @yield('LeftBar')
         </div>
+        <div class="col-md-6">
+            @yield('content')
+        </div>
         <div class="sesionRight">
             @yield('RightBar')
         </div>
@@ -93,12 +97,12 @@
 	{{--</header>--}}
 	
 
-    <div class="container">
-        @yield('content')
-    </div>
+
+    @yield('welcome')
 	<div class="hero-img">
 		@yield('hero-content')
 	</div>
+    
 		
 <footer>
     <div class="footer" id="footer">
