@@ -56,15 +56,9 @@ export default class Theather
 
     ClickEvent()
     {
+        // zet scripts uit als je click
         document.getElementsByClassName("chair").addEventListener("click", ()=>{
-            $.ajax({
-                method: "POST",
-                url: "modules/seatsHandler.js",
-                data: { seat : this.selected }
-            })
-                .done(function( msg ) {
-                    alert( "Stoel(len) gereserveerd!: " + msg );
-                });
+            
         });
     }
 
@@ -103,6 +97,7 @@ export default class Theather
                         if (!document.getElementById("seat-" + i).classList.contains("bezet"))
                         {
                             this.colorChangeSeat(document.getElementById("seat-" + i));
+                            this.selected = "seat-" +i;
                         }
                         else
                         {
@@ -117,6 +112,7 @@ export default class Theather
                         if (!document.getElementById("seat-" + i).classList.contains("bezet"))
                         {
                             this.colorChangeSeat(document.getElementById("seat-" + i));
+                            this.selected = "seat-" + i;
                         }
                         else
                         {
