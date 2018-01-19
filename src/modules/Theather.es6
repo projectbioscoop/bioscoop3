@@ -120,7 +120,7 @@ export default class Theather
                 }
                 else
                 {
-                    if (!document.getElementById("seat-" + i).classList.contains("chair"))
+                    if (!document.getElementById("seat-" + i).classList.contains("loveSeat"))
                     {
                         if (!document.getElementById("seat-" + i).classList.contains("bezet"))
                         {
