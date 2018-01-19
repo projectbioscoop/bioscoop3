@@ -5,8 +5,9 @@ export default class Theather
         this.chairs;
         this.selected;
         this.amountSeats = options.amountSeats;
-        this.loveSeats = options.loveSeats;
-        this.HoverEvent()
+        this.loveSeats = (options.loveSeats == "true" ? true : false);
+        this.HoverEvent();
+        this.ClickEvent();
     }
 
     HoverEvent()
@@ -57,8 +58,19 @@ export default class Theather
     ClickEvent()
     {
         // zet scripts uit als je click
-        document.getElementsByClassName("chair").addEventListener("click", ()=>{
-
+        document.getElementById("conS").addEventListener("click", ()=>{
+            console.log(1);
+            // make form
+            let conForm;
+            conForm = "<input type=\"hidden\" id=\"chairL\" value=\""+this.chairs.length+"\"></input>";
+            for (let i = 0; i < this.chairs.length; i++)
+            {
+                conForm = conForm + "<input type=\"hidden\" id=\"seat"+i+"\" value=\""+this.chairs[i]+"\"></input>";
+            }
+            conForm = conForm + "<input type=\"hidden\" id=\"LSB\" value=\""+this.loveSeats+"\"></input>";
+            document.getElementById('formSD').innerHTML = conForm;
+            // send form
+            document.formSDname.submit();
         });
     }
 

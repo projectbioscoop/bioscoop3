@@ -44,7 +44,7 @@ Route::get('/payment', function () {
 })->name('PaymentComplete');
 
 
-Route::get('/payTicket', 'PayTicketController@index');
+Route::post('/payTicket', 'PayTicketController@index');
 //Route::get('/payTicket', function () {
 //    return view('Payment.payTicket');
 //})->name('payTicket');

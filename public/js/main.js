@@ -148,8 +148,9 @@ class Theather
         this.chairs;
         this.selected;
         this.amountSeats = options.amountSeats;
-        this.loveSeats = options.loveSeats;
-        this.HoverEvent()
+        this.loveSeats = (options.loveSeats == "true" ? true : false);
+        this.HoverEvent();
+        this.ClickEvent();
     }
 
     HoverEvent()
@@ -199,8 +200,20 @@ class Theather
 
     ClickEvent()
     {
-        document.getElementsByClassName("chair").addEventListener("click", ()=>{
-            fetch("payment/seats"+this.selected);//url
+        // zet scripts uit als je click
+        document.getElementById("conS").addEventListener("click", ()=>{
+            console.log(1);
+            // make form
+            let conForm;
+            conForm = "<input type=\"hidden\" id=\"chairL\" value=\""+this.chairs.length+"\"></input>";
+            for (let i = 0; i < this.chairs.length; i++)
+            {
+                conForm = conForm + "<input type=\"hidden\" id=\"seat"+i+"\" value=\""+this.chairs[i]+"\"></input>";
+            }
+            conForm = conForm + "<input type=\"hidden\" id=\"LSB\" value=\""+this.loveSeats+"\"></input>";
+            document.getElementById('formSD').innerHTML = conForm;
+            // send form
+            document.formSDname.submit();
         });
     }
 
@@ -212,13 +225,13 @@ class Theather
             seat.src = "/img/bioscoop/seatSelect.png";
             break;
             case "/img/bioscoop/loveseat.png":
-            seat.src = "/img/bioscoop/loveseatSelect.png"
+            seat.src = "/img/bioscoop/loveseatSelect.png";
             break;
             case "/img/bioscoop/seatSelect.png":
             seat.src = "/img/bioscoop/seat.png";
             break;
             case "/img/bioscoop/loveseatSelect.png":
-            seat.src = "/img/bioscoop/loveseat.png"
+            seat.src = "/img/bioscoop/loveseat.png";
             break;
         }
     }
@@ -239,6 +252,7 @@ class Theather
                         if (!document.getElementById("seat-" + i).classList.contains("bezet"))
                         {
                             this.colorChangeSeat(document.getElementById("seat-" + i));
+                            this.selected = "seat-" +i;
                         }
                         else
                         {
@@ -253,6 +267,7 @@ class Theather
                         if (!document.getElementById("seat-" + i).classList.contains("bezet"))
                         {
                             this.colorChangeSeat(document.getElementById("seat-" + i));
+                            this.selected = "seat-" + i;
                         }
                         else
                         {
@@ -293,10 +308,8 @@ class Display
             let selected = this.loveseat.options[this.loveseat.selectedIndex].value;
             if(selected != 0)
             {
-                console.log(this.normal.disabled);
                 this.normal.disabled = true;
                 this.loveseatbool.value = "true";
-                console.log(this.normal.disabled);
             }
             else
             {
