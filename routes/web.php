@@ -14,7 +14,7 @@
 
 Route::group(['middleware'=>'auth'], function(){
 
-    Route::get('/chairselect/1', "BioscoopZaalController@index");
+    Route::post('/chairselect/1', "BioscoopZaalController@index");
     Route::get('/chairselectadmin', "BioscoopZaalController@indexAdmin");
     Route::resource('movie', 'MovieController');
     Route::resource('display', 'DisplayController');

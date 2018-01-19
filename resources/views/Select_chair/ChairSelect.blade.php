@@ -40,8 +40,8 @@
 @endif
 </div>
 
-<div class="scherm col-lg-12">
-    <img src="/img/bioscoop/scherm.png" alt="Tv-screen">
+<div class="scherm col-md-12">
+    <img class="col-md-12" src="/img/bioscoop/scherm.png" alt="Tv-screen">
 </div>
 
 @endsection

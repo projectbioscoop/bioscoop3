@@ -52,6 +52,9 @@
         <div class="sesionLeft">
             @yield('LeftBar')
         </div>
+        <div class="col-md-6">
+            @yield('content')
+        </div>
         <div class="sesionRight">
             @yield('RightBar')
         </div>
@@ -93,9 +96,7 @@
 	{{--</header>--}}
 	
 
-    <div class="container">
-        @yield('content')
-    </div>
+
     @yield('welcome')
 	<div class="hero-img">
 		@yield('hero-content')

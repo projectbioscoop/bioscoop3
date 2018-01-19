@@ -58,7 +58,7 @@ export default class Theather
     {
         // zet scripts uit als je click
         document.getElementsByClassName("chair").addEventListener("click", ()=>{
-            
+
         });
     }
 
