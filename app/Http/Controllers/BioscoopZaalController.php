@@ -33,7 +33,8 @@ class BioscoopZaalController extends Controller
             "seats" => $_POST["seat"],
             "loveseat" => $_POST["loveseat"]
         ];
-        return view('Select_chair.ChairSelect', compact("movieData"));
+
+	    return view('Select_chair.ChairSelect', compact("movieData"));
     }
 
     public function indexAdmin()
