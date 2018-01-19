@@ -13,7 +13,23 @@ class PayTicketController extends Controller
      */
     public function index()
     {
-        //
+        $movie = "tt2283362";
+        $loveseats = false;
+        $chairs = [
+            "seat-1",
+            "seat-2",
+            "seat-3"
+        ];
+
+        $movie = file_get_contents("http://www.omdbapi.com/?apikey=31d16dc7&i=" . $movie . "&plot=full=json");
+        $movie = json_decode($movie);
+        $data = [
+            $movie,
+            $loveseats,
+            $chairs
+        ];
+        return view('Payment.payTicket', compact('data','data'));
+
     }
 
     /**

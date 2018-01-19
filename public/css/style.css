@@ -1,3 +1,15 @@
+*{
+	font-family: 'Biryani', sans-serif;
+}
+
+@font-face {
+	font-family: 'title';
+	src: url('../font/3DLETBRK.eot');
+	src: url('../font/3DLETBRK.eot?#iefix') format('embedded-opentype'), url('../font/3DLETBRK.woff') format('woff'), url('../font/3DLETBRK.ttf') format('truetype'), url('../font/3DLETBRK.svg#FontName') format('svg');
+	font-style: normal;
+	font-weight: normal;
+}
+
 .full {
     width: 100%;	
 }
@@ -138,8 +150,7 @@
 .mySlides {
 	display: none;
 	margin: 0 auto;
-	max-width: 100%;
-	opacity: 0.8;
+	width: 100%;
 }
 .bg-primary {
 	background: #e74c3c;
@@ -324,30 +335,28 @@
 	grid-row-end: 1;
 }
 .hero-img{
-	position: relative;
 	text-align: center;
 	width: 100%;
 }
-.welkom{
-	height: 15%;
+.welkom
+{	
 	position: absolute;
-	color: #ffffff;
-	width: 84%;
-	left: 0;
-	top: 0;
-	right: 0;
 	bottom: 0;
-	background-color: black;
-	opacity: 0.5;
-	filter: blur(10px);
-	-webkit-filter: blur(10px);
-	-moz-filter: blur(10px);
-	-o-filter: blur(10px);
-	-ms-filter: blur(10px);
-	filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='svgMask'><feGaussianBlur stdDeviation='10' /></filter></svg>#svgMask");
-	top: 95%;
-	left: 50%;
-	transform: translate(-50%, -50%);
+	color: #ffffffff;
+	width: 100%;
+	text-align: center;
+}
+.welkomtext
+{
+	padding: 0;
+	font-size: 2em;
+	text-shadow: 1px 1px black, 1px 1px black, 1px 1px black, 1px 1px black;
+}
+.wttl
+{
+	font-size: 10em;
+	font-family: 'Biryani';
+	letter-spacing: 10px;	
 }
 .addsteps{
 	display: flex;
