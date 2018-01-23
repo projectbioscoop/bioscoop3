@@ -51,9 +51,10 @@ class DisplayController extends Controller
     {
         $display = tbl_displays::find($displayID);
         $movie = tbl_movies::find($display->movie_id);
-        $price = tbl_price::find(1);
+        $priceN = tbl_price::find(1);
+        $priceL = tbl_price::find(2);
         $movie = json_decode(file_get_contents("http://www.omdbapi.com/?apikey=31d16dc7&i=" . $movie->movie_id . "&plot=full=json"));
-        $displayinfo = [$movie, $display,$price];
+        $displayinfo = [$movie, $display,$priceN,$priceL];
 
         return view('ticket.select', compact('displayinfo', 'displayinfo'));
     }

@@ -73,6 +73,8 @@
         <input type="hidden" name="loveSeat" id="loveSeat" value= {{ $movieData["loveseat"] }}>
         <input type="hidden" name="amountSeat" id="amountSeat" value= {{ $movieData["seats"] }}>
     </form>
-    <form action="/payTicket" id="formSD" name="formSDname">
+    <form action="/payTicket" id="formSD" name="formSDname" method="post">
+    {{ csrf_field()}}
+        <div id="formSDitem"></div>
     </form>
 @endsection

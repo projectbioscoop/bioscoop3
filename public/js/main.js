@@ -146,7 +146,7 @@ class Theather
     constructor(options)
     {
         this.chairs;
-        this.selected;
+        this.selected == null;
         this.amountSeats = options.amountSeats;
         this.loveSeats = (options.loveSeats == "true" ? true : false);
         this.HoverEvent();
@@ -201,19 +201,15 @@ class Theather
 
     ClickEvent()
     {
-        // zet scripts uit als je click
         document.getElementById("conS").addEventListener("click", ()=>{
-            console.log(1);
-            // make form
             let conForm;
-            conForm = "<input type=\"hidden\" id=\"chairL\" value=\""+this.chairs.length+"\"></input>";
-            for (let i = 0; i < this.chairs.length; i++)
+            conForm = "<input type=\"hidden\" name=\"chairL\" id=\"chairL\" value=\""+this.selected.length+"\"></input>";
+            for (let i = 0; i < this.selected.length; i++)
             {
-                conForm = conForm + "<input type=\"hidden\" id=\"seat"+i+"\" value=\""+this.chairs[i]+"\"></input>";
+                conForm = conForm + "<input type=\"hidden\" name=\"seat"+i+"\" id=\"seat"+i+"\" value=\""+this.selected[i]+"\"></input>";
             }
-            conForm = conForm + "<input type=\"hidden\" id=\"LSB\" value=\""+this.loveSeats+"\"></input>";
-            document.getElementById('formSD').innerHTML = conForm;
-            // send form
+            conForm = conForm + "<input type=\"hidden\" id=\"LSB\" name=\"LSB\" value=\""+this.loveSeats+"\"></input>";
+            document.getElementById('formSDitem').innerHTML = conForm;
             document.formSDname.submit();
         });
     }
@@ -239,6 +235,8 @@ class Theather
 
     setSeatCompanion(seat)
     {
+        this.selected = null;
+        this.Addselection(seat.id);
         let amountSeatsMin = Math.floor(parseInt(seat.id.split("-")[1]) - ((this.amountSeats - 1 ) / 2));
         (amountSeatsMin < 0 ? amountSeatsMin = 0 : null );
         let amountSeatsMax = parseInt(seat.id.split("-")[1]) + (this.amountSeats / 2);
@@ -253,7 +251,7 @@ class Theather
                         if (!document.getElementById("seat-" + i).classList.contains("bezet"))
                         {
                             this.colorChangeSeat(document.getElementById("seat-" + i));
-                            this.selected = "seat-" +i;
+                            this.Addselection("seat-" +i);
                         }
                         else
                         {
@@ -268,7 +266,7 @@ class Theather
                         if (!document.getElementById("seat-" + i).classList.contains("bezet"))
                         {
                             this.colorChangeSeat(document.getElementById("seat-" + i));
-                            this.selected = "seat-" + i;
+                            this.Addselection("seat-" +i);
                         }
                         else
                         {
@@ -279,8 +277,18 @@ class Theather
             }
         }
     }
-
-    
+    Addselection(seat)
+    {
+        if (this.selected == null)
+        {
+            this.selected = [seat];
+        }
+        else
+        {
+            this.selected[this.selected.length] = seat;
+        }
+        
+    }
 }
 /* harmony export (immutable) */ __webpack_exports__["a"] = Theather;
 
