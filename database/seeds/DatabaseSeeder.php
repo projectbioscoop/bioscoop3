@@ -96,12 +96,6 @@ class DatabaseSeeder extends Seeder
         {
             $movie                      = new \App\tbl_movies();
             $movie->movie_id            = $movieArray[$i][0];
-            $movie->movie_title         = $movieArray[$i][1];
-            // $movie->language_version    = $faker->languageCode;
-            // $movie->genre               = $faker->word;
-            // $movie->projection          = $faker->word;
-            $movie->movie_info          = $faker->sentence;
-            // $movie->requirements        = $faker->sentence;
             $movie->save();
         }
 
@@ -157,7 +151,7 @@ class DatabaseSeeder extends Seeder
             
             for ($j = 1;$j < rand(3, 10);$j++)
             {
-                $order_id       = $j;
+                $order_id = $j;
                 $user_id;
                 $amountTickets  = rand(1, 5);
                 $count          = 0;
@@ -217,6 +211,19 @@ class DatabaseSeeder extends Seeder
                 $chair->display_id  = $i;
                 $chair->save();
             }
+        }
+        $basePrice = 15;
+        $loveSeatPrice = ($basePrice * 2) / 100 * 110;
+        $prices = [
+            ["seat" => "normalseat", "price" => $basePrice],
+            ["seat" => "loveseat", "price" => $loveSeatPrice]
+        ];
+        for ($i = 0;$i < count($prices);$i++)
+        {
+            $price = new \App\tbl_price();
+            $price->seatname = $prices[$i]["seat"];
+            $price->price = $prices[$i]{"price"};
+            $price->save();
         }
     }
 }

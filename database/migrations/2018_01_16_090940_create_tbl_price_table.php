@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTblMoviesTable extends Migration
+class CreateTblPriceTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class CreateTblMoviesTable extends Migration
      */
     public function up()
     {
-        Schema::create('tbl_movies', function (Blueprint $table) {
+        Schema::create('tbl_price', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('movie_id');
+            $table->string('seatname');
+            $table->integer('price');
             $table->timestamps();
         });
     }
@@ -27,6 +28,6 @@ class CreateTblMoviesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tbl_movies');
+        Schema::dropIfExists('tbl_price');
     }
 }

@@ -1,0 +1,14 @@
+.img_section {
+    display: flex;
+    justify-content: left;
+}
+.main_content {
+    display: flex;
+    padding-top: 20px;
+    padding-bottom: 30px;
+    justify-content: center;
+}
+.second_content {
+    padding-left: 70px;
+
+}

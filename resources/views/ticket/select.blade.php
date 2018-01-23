@@ -17,7 +17,7 @@
             </tr>
             <tr>
                 <td>Normaal</td>
-                <td>€5.-</td>
+                <td>€{{$displayinfo[2]->normalprice}}.-</td>
                 <td>
                     <select name="seat" id="normalselect">
                         @for($i = 0; $i < 13; $i++)
@@ -30,7 +30,7 @@
             @if($displayinfo[1]->theater_id == 3)
             <tr>
                 <td>Loveseat</td>
-                <td>€10.-</td>
+                <td>€{{$displayinfo[2]->loveseatprice}}.-</td>
                 <td>
                     <select name="seat" id="loveseatselect">
                         @for($i = 0; $i < 13; $i++)
